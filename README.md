@@ -1,2 +1,3 @@
-# Welcome to the 2nd project brought to you by Stephen, LeRon, Luke, and Kyle! code name: SiLLK
-this 
+# WORDPRESS Application in Azure
+# Brought to you by Stephen, LeRon, Luke, and Kyle! 
+# code name: SiLLK
