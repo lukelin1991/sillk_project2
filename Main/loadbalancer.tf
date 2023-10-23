@@ -1,6 +1,6 @@
-resource "azurerm_lb" "example" {
-  name                = "sillk-LoadBalancer"
-  location            = azurerm_resource_group.example.location
-  resource_group_name = azurerm_resource_group.example.name
+resource "azurerm_lb" "sillkLb" {
+  name                = "sillkLb"
+  location            = var.location
+  resource_group_name = var.rg_name
 
 }

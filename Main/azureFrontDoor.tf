@@ -1,32 +1,32 @@
-resource "azurerm_cdn_frontdoor_profile" "example" {
-  name                = "sillkFDprofile"
-  resource_group_name = azurerm_resource_group.example.name
+resource "azurerm_cdn_frontdoor_profile" "sillkFDProfile" { 
+  name                = "sillkFDProfile"
+  resource_group_name = var.rg_name
   sku_name            = "Standard_AzureFrontDoor"
 }
 
-resource "azurerm_cdn_frontdoor_endpoint" "example" {
-  name                     = "sillk-FDendpoint"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.example.id
+resource "azurerm_cdn_frontdoor_endpoint" "sillkFDEndpoint" {
+  name                     = "sillkFDEndpoint"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.sillkFDProfile.id
 
 #  tags = {
 #    ENV = "example"
  # }
 }
-resource "azurerm_cdn_frontdoor_origin_group" "example" {
-  name                     = "origingroup"
-  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.example.id
+resource "azurerm_cdn_frontdoor_origin_group" "originGroup" {
+  name                     = "originGroup"
+  cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.sillkFDProfile.id
 
   load_balancing {}
 }
 
-resource "azurerm_cdn_frontdoor_origin" "example" {
-  name                          = "LBorigin"
-  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.example.id
+resource "azurerm_cdn_frontdoor_origin" "LBOrigin" {
+  name                          = "LBOrigin"
+  cdn_frontdoor_origin_group_id = azurerm_cdn_frontdoor_origin_group.originGroup.id
   enabled                       = true
 
   certificate_name_check_enabled = false
 
-  host_name          = "10.0.0.4"
+  host_name          = "10.0.0.4" #will need actual load balancer IP, 10.0.0.4 stuff is used locally to test.
   http_port          = 80
   https_port         = 443
   origin_host_header = "10.0.0.4"
