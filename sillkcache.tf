@@ -1,8 +1,8 @@
 # Create an Azure Cache for Redis
 resource "azurerm_redis_cache" "cache" {
   name                = "sillk-cache"
-  resource_group_name = azurerm_resource_group.sillkrg.name
-  location            = azurerm_resource_group.sillkrg.location
+  resource_group_name = azurerm_resource_group.SiLLK.name
+  location            = azurerm_resource_group.SiLLK.location
   capacity            = 0
   family              = "C"
   sku_name            = "Basic"
