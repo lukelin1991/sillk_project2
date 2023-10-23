@@ -10,6 +10,6 @@ var.location will default as "East US", and var.rg_name will put our "SiLLK" lab
 if you find that there are additional things that end up being repeated, please feel free to add into variables.
 
 missing pieces (please note comments):
-azureFrontDoor.tf
-vmscaleset.tf
-WAFpolicy.tf - this is firewall, do not connect, unless you want to see every1 get emailed about budgets.
+- azureFrontDoor.tf
+- vmscaleset.tf
+- WAFpolicy.tf - this is firewall, do not connect, unless you want to see every1 get emailed about budgets.
