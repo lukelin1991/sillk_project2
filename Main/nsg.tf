@@ -3,17 +3,17 @@ resource "azurerm_network_security_group" "vm-nsg" {
   location            = azurerm_resource_group.SiLLK.location
   resource_group_name = azurerm_resource_group.SiLLK.name
 
-  #   security_rule {
-  #     name                       = "test123"
-  #     priority                   = 100
-  #     direction                  = "Inbound"
-  #     access                     = "Allow"
-  #     protocol                   = "Tcp"
-  #     source_port_range          = "*"
-  #     destination_port_range     = "*"
-  #     source_address_prefix      = "*"
-  #     destination_address_prefix = "*"
-  #   }
+  security_rule {
+    name                       = "allow-endpoint"
+    priority                   = 300
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix = "10.0.2.0"
+  }
 }
 
 resource "azurerm_network_security_group" "netapp-nsg" {
@@ -21,17 +21,17 @@ resource "azurerm_network_security_group" "netapp-nsg" {
   location            = azurerm_resource_group.SiLLK.location
   resource_group_name = azurerm_resource_group.SiLLK.name
 
-  #   security_rule {
-  #     name                       = "test123"
-  #     priority                   = 100
-  #     direction                  = "Inbound"
-  #     access                     = "Allow"
-  #     protocol                   = "Tcp"
-  #     source_port_range          = "*"
-  #     destination_port_range     = "*"
-  #     source_address_prefix      = "*"
-  #     destination_address_prefix = "*"
-  #   }
+  security_rule {
+    name                       = "allow-endpoint"
+    priority                   = 300
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix = "10.0.3.0"
+  }
 }
 
 resource "azurerm_network_security_group" "endpoint-nsg" {
@@ -39,17 +39,17 @@ resource "azurerm_network_security_group" "endpoint-nsg" {
   location            = azurerm_resource_group.SiLLK.location
   resource_group_name = azurerm_resource_group.SiLLK.name
 
-  #   security_rule {
-  #     name                       = "test123"
-  #     priority                   = 100
-  #     direction                  = "Inbound"
-  #     access                     = "Allow"
-  #     protocol                   = "Tcp"
-  #     source_port_range          = "*"
-  #     destination_port_range     = "*"
-  #     source_address_prefix      = "*"
-  #     destination_address_prefix = "*"
-  #   }
+  security_rule {
+    name                       = "allow-endpoint"
+    priority                   = 300
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "80"
+    source_address_prefix      = "*"
+    destination_address_prefix = "10.0.4.0"
+  }
 }
 
 resource "azurerm_subnet_network_security_group_association" "vm-sga" {

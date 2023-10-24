@@ -18,3 +18,4 @@ resource "azurerm_subnet" "endpoint-subnet" {
   virtual_network_name = azurerm_virtual_network.sillk-vnet.name
   address_prefixes     = ["10.0.4.0/24"]
 }
+
