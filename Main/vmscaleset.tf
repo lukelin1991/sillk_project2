@@ -5,7 +5,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "sillkvmss" {
   sku                 = "Standard_B2s"
   instances           = 2
   admin_username      = "sillk"
-  admin_password = "$iLLK"
+  admin_password      = "$iLLK"
 
 
   source_image_reference {
@@ -20,14 +20,14 @@ resource "azurerm_linux_virtual_machine_scale_set" "sillkvmss" {
     caching              = "ReadWrite"
   }
 
-  network_interface {  #unfinished requires NIC
+  network_interface { #unfinished requires NIC
     name    = "example"
     primary = true
 
-    ip_configuration {  #unfinished, requires ipconfig from subnet.
+    ip_configuration { #unfinished, requires ipconfig from subnet.
       name      = "internal"
       primary   = true
-      subnet_id = azurerm_subnet.internal.id
+      subnet_id = azurerm_subnet.vm-subnet.id //updated BJ 6:04pm 11/23
     }
   }
 }
