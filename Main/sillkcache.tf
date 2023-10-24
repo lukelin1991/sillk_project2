@@ -5,7 +5,7 @@ resource "azurerm_redis_cache" "cache" {
   location            = azurerm_resource_group.SiLLK.location
   capacity            = 0
   family              = "C"
-  sku_name            = "Basic"
+  sku_name            = "Standard"
   enable_non_ssl_port = false
   minimum_tls_version = "1.2"
   redis_configuration {
