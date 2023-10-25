@@ -1,6 +1,6 @@
-resource "azurerm_cdn_frontdoor_profile" "sillkFDProfile" { 
+resource "azurerm_cdn_frontdoor_profile" "sillkFDProfile" {
   name                = "sillkFDProfile"
-  resource_group_name = var.rg_name
+  resource_group_name = azurerm_resource_group.SiLLK.name
   sku_name            = "Standard_AzureFrontDoor"
 }
 
@@ -8,9 +8,9 @@ resource "azurerm_cdn_frontdoor_endpoint" "sillkFDEndpoint" {
   name                     = "sillkFDEndpoint"
   cdn_frontdoor_profile_id = azurerm_cdn_frontdoor_profile.sillkFDProfile.id
 
-#  tags = {
-#    ENV = "example"
- # }
+  #  tags = {
+  #    ENV = "example"
+  # }
 }
 resource "azurerm_cdn_frontdoor_origin_group" "originGroup" {
   name                     = "originGroup"
