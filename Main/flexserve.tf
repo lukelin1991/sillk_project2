@@ -2,7 +2,7 @@ data "azurerm_resource_group" "database" {
   name = "database"
 }
 
-data "azure_mysql_flexible_server" "database" {
+data "azurerm_mysql_flexible_server" "database" {
   name                = "conoco-project2"
   resource_group_name = data.azurerm_resource_group.database.name
 }
