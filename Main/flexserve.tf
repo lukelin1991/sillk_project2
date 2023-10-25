@@ -1,12 +1,9 @@
-data "azurerm_resource_group" "database" {
-  name = "database"
-}
+
 
 data "azurerm_mysql_flexible_server" "database" {
   name                = "conoco-project2"
-  resource_group_name = data.azurerm_resource_group.database.name
+  resource_group_name = "database"
 }
-
 resource "azurerm_private_endpoint" "dataprivend" {
   name                = "sillk-mysql"
   location            = azurerm_resource_group.SiLLK.location
@@ -16,12 +13,12 @@ resource "azurerm_private_endpoint" "dataprivend" {
   private_service_connection {
     name                           = "sillk-privateserviceconnection"
     private_connection_resource_id = data.azurerm_mysql_flexible_server.database.id
-    subresource_names              = ["mysql"]
+    subresource_names              = ["mysqlServer"]
     is_manual_connection           = false
   }
 }
 
-resource "azurerm_private_dns_zone" "main" {
+/* resource "azurerm_private_dns_zone" "main" {
   name                = "bjgomes.mysql.database.azure.com"
   resource_group_name = azurerm_resource_group.SiLLK.name
 }
@@ -31,9 +28,9 @@ resource "azurerm_private_dns_zone_virtual_network_link" "example" {
   private_dns_zone_name = azurerm_private_dns_zone.main.name
   virtual_network_id    = azurerm_virtual_network.sillk-vnet.id
   resource_group_name   = azurerm_resource_group.SiLLK.name
-}
+} */
 
-resource "azurerm_mysql_flexible_server" "main" {
+/* resource "azurerm_mysql_flexible_server" "main" {
   name                   = "bjgomes-fs"
   resource_group_name    = azurerm_resource_group.SiLLK.name
   location               = azurerm_resource_group.SiLLK.location
@@ -53,4 +50,4 @@ resource "azurerm_mysql_flexible_database" "main" {
   server_name         = azurerm_mysql_flexible_server.main.name
   charset             = "utf8"
   collation           = "utf8_unicode_ci"
-}
+} */
