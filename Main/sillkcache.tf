@@ -1,4 +1,4 @@
-# Create an Azure Cache for Redis
+# Create an Azure Cache for Redis  
 resource "azurerm_redis_cache" "cache" {
   name                = "sillk-cache"
   resource_group_name = azurerm_resource_group.SiLLK.name

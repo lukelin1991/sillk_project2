@@ -1,20 +1,20 @@
-#Create Private Endpoint for Azure Cache for Redisv
+#Create Private Endpoint for Azure Cache for Redis 
 resource "azurerm_private_endpoint" "cacheprivend" {
   name                = "sillk-cachepep"
   location            = azurerm_resource_group.SiLLK.location
   resource_group_name = azurerm_resource_group.SiLLK.name
   subnet_id           = azurerm_subnet.endpoint-subnet.id
 
-  
+
   #Create private service connection
   private_service_connection {
-    name                           = "lepe1-privateserviceconnection"
+    name                           = "sillk-privateserviceconnection"
     private_connection_resource_id = azurerm_redis_cache.cache.id
     subresource_names              = ["redisCache"]
     is_manual_connection           = false
   }
 
-#create private dns group
+  #create private dns group
   private_dns_zone_group {
     name                 = "cacheprivend-dns-zone-group"
     private_dns_zone_ids = [azurerm_private_dns_zone.cacheprivend.id]

@@ -1,5 +1,5 @@
 #Create resource group
 resource "azurerm_resource_group" "SiLLK" {
-  name     = var.rg_name
-  location = var.location
+  name     = "SiLLK"
+  location = "East US"
 }
