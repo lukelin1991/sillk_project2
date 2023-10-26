@@ -7,6 +7,7 @@ resource "azurerm_linux_virtual_machine_scale_set" "sillkss" {
   admin_username                  = "adminuser"
   admin_password                  = "Pa$$w0rd"
   disable_password_authentication = false
+  custom_data                     = filebase64("script.sh")
 
 
   source_image_reference {
